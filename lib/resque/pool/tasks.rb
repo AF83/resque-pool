@@ -11,7 +11,7 @@ namespace :resque do
   namespace :pool do
      # resque pool config.  e.g. after_prefork connection handling
     task :setup do
-      @opts = { :daemon => ENV['FOREGROUND'].present? }
+      @opts = { :daemon => ENV['FOREGROUND'].blank? }
       @opts[:stdout]  ||= "log/resque-pool.stdout.log"
       @opts[:stderr]  ||= "log/resque-pool.stderr.log"
       @opts[:pidfile] ||= "tmp/pids/resque-pool.pid"
